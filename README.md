@@ -33,8 +33,6 @@ function(){
 	console.log("connected to server!");
 });
 ```
-### 效果
-![效果](https://img-blog.csdn.net/20180707211743506?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2Fnc2do/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
 
 ## 事件监听
 |常用监听事件事件类型| 事件触发条件|
