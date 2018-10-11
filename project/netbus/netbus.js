@@ -7,7 +7,6 @@ var tcppkg = require("./tcppkg");
 var netbus = {
 	PROTO_JSON:1,
 	PROTO_BUF:2,
-
 };
 
 var global_session_list = {}; //全局连接session表
