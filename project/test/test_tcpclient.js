@@ -13,7 +13,7 @@ sock.on("connect",function() {
 
 	// sock.write(netpkg.package_data("Hello!"));
 	// sock.write(netpkg.test_pkg_two_action("start", "stop"));
-	var buf_set = netpkg.test_pkg_two_slice("start", "end");
+	var buf_set = netpkg.test_pkg_two_slice("Bla", "ke");
 
 	sock.write(buf_set[0]); // 
 	setTimeout(function() {
