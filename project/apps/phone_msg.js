@@ -43,14 +43,14 @@ spuller.pullReply(maxNum, callback);
 var smsType = 0; // Enum{0: 普通短信, 1: 营销短信}
 var ssender = qcloudsms.SmsSingleSender();
 
-function send_phone_chat(phone_num,  content,callback) {
+function send_phone_chat(phone_num,  content, callback) {
 	
 	// var cmd_url = "https://yun.tim.qq.com/v5/tlssmssvr/sendsms?sdkappid=1400253181&random=1234"
 	// var cmd_url = "http://api.cnsms.cn/?ac=send&uid=117000&pwd=9A27BF288337541C87D3EE9FE3A18ACA&mobile=%s&content=%s&encode=utf8";
 	content = encodeURI(content);
 	var params = [content,"10"];
 	// var url = util.format(cmd_url, phone_num, content);
-	ssender.sendWithParam(86,phone_num, "410649",params, smsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
+	ssender.sendWithParam(86, phone_num, "410649",params, smsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
 	// http.get(url, function(incoming_msg) {
 	// 	log.info("respones status " + incoming_msg.statusCode);
 	// 	incoming_msg.on("data", function(data) {
@@ -68,7 +68,7 @@ function send_phone_chat(phone_num,  content,callback) {
 function send_identify_code(phone_num, code) {
 	var content = "%s";
 	content = util.format(content, code);
-	send_phone_chat(phone_num, content,function(err, res, resData){
+	send_phone_chat(phone_num, content, function(err, res, resData){
 		if (err) {
     	  	console.log("err: ", err);
   		} else {

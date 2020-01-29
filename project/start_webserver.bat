@@ -1,1 +1,2 @@
-node apps/webserver/webserver.js 6080
+node apps/webserver/webserver.js
+pause;

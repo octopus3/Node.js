@@ -190,7 +190,7 @@ five_chess_room.prototype.do_exit_room = function(p, quit_reason) {
 	if (p.seatid != -1) { // 玩家在座位上
 		if (p.state == State.Playing) { // 强制退出游戏
 			var winner_seatid = GAME_SEAT - p.seatid - 1;
-			winner = this.seats[winner_seat];
+			winner = this.seats[winner_seatid];
 			if (winner) {
 				this.checkout_game(1, winner);
 			}
@@ -637,14 +637,6 @@ five_chess_room.prototype.checkout_game = function(result, winner) {
 		if (!this.seats[i]) {
 			continue;
 		}
-
-		//玩家金币数目不满足要求
-		if (this.seats[i].uchip < this.min_chip) {
-			five_chess_model.kick_player_chip_not_enough(this.seats[i]);
-			continue;
-		}
-
-		
 		
 		//踢出被迫掉线的玩家
 		if(this.seats[i].session == null) {
@@ -665,7 +657,7 @@ five_chess_room.prototype.on_checkout_over = function() {
 	//end
 
 	for (var i = 0; i < GAME_SEAT; i++) {
-		if (this.seats[i] || this.seats[i].state != State.CheckOut) {
+		if (!this.seats[i] || this.seats[i].state != State.CheckOut) {
 			continue;
 		}
 
@@ -675,7 +667,7 @@ five_chess_room.prototype.on_checkout_over = function() {
 	}
 
 	this.room_broadcast(Stype.Game5Chess, Cmd.Game5Chess.CHECKOUT_OVER, null, null);
-	/*
+	
 	//提出金币不足的玩家
 	for (var i = 0; i < GAME_SEAT; i++) {
 		if (!this.seats[i]) {
@@ -695,7 +687,6 @@ five_chess_room.prototype.on_checkout_over = function() {
 		//end
 	}
 	//end 
-	*/
 }
 
 five_chess_room.prototype.do_player_put_chess = function(p, block_x, block_y, ret_func) {

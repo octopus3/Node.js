@@ -1,31 +1,40 @@
 var Stype = require("./Stype.js");
+var game_config = null;
+var HOST_IP = "127.0.0.1";
 
 var game_config = {
+	// GATEWAY_CONNECT_IP: "116.62.45.43",
+	GATEWAY_CONNECT_IP: "127.0.0.1",
 	gateway_config: {
-		host: "127.0.0.1",
+		host: HOST_IP,
 		ports: [6080, 6081],
 	},
 
+	webserver: {
+		host: HOST_IP,
+		port: 7000,
+	},
+
 	game_system_server: {
-		host: "127.0.0.1",
+		host: HOST_IP,
 		port: 6087,
 		stypes: [Stype.GameSystem],
 	},
 
 	game_server: {
-		host: "127.0.0.1",
+		host: HOST_IP,
 		port: 6088,
 		stypes: [Stype.Game5Chess],
 	},
 
 	center_server: {
-		host: "127.0.0.1",
+		host: HOST_IP,
 		port: 6086,
 		stypes: [Stype.Auth],
 	},
 
 	game_database: {
-		host: "127.0.0.1",
+		host: HOST_IP,
 		port: 3306,
 		db_name: "game_node",
 
@@ -35,7 +44,7 @@ var game_config = {
 
 
 	center_database: {
-		host: "127.0.0.1",
+		host: HOST_IP,
 		port: 3306,
 		db_name: "bycw_center",
 
@@ -44,13 +53,13 @@ var game_config = {
 	},
 
 	center_redis: {
-		host: "127.0.0.1",
+		host: HOST_IP,
 		port: 6379,
 		db_index: 0
 	},
 
 	game_redis: {
-		host: "127.0.0.1",
+		host: HOST_IP,
 		port: 6379,
 		db_index: 1
 	},
@@ -67,17 +76,17 @@ var game_config = {
 
 		1: {
 			stype: Stype.Auth,
-			host: "127.0.0.1",
+			host: HOST_IP,
 			port: 6086,
 		},
 		2: {
 			stype: Stype.GameSystem,
-			host: "127.0.0.1",
+			host: HOST_IP,
 			port: 6087,
 		},
 		3: {
 			stype: Stype.Game5Chess,
-			host: "127.0.0.1",
+			host: HOST_IP,
 			port: 6088,
 		}
 	},
